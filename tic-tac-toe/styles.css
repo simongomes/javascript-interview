@@ -1,0 +1,67 @@
+:root {
+  --cell-size: 100px;
+  --mark-size: 95px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid #252525;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.board.x .cell:hover::before,
+.board.x .cell:hover::after,
+.cell.x::before,
+.cell.x::after {
+  content: "";
+  width: 10px;
+  height: var(--mark-size);
+  background-color: #252525;
+  position: absolute;
+}
+.board.x .cell:hover::before,
+.cell.x::before {
+  transform: rotate(45deg);
+}
+.board.x .cell:hover::after,
+.cell.x::after {
+  transform: rotate(-45deg);
+}
+
+.board.o .cell:hover::before,
+.board.o .cell:hover::after,
+.cell.o::before,
+.cell.o::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.board.o .cell:hover::after,
+.cell.o::after {
+  width: calc(var(--mark-size) * 0.75);
+  height: calc(var(--mark-size) * 0.75);
+  background-color: #ffffff;
+}
+.board.o .cell:hover::before,
+.cell.o::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: #252525;
+}
