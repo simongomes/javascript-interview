@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
+
+.slider-wrapper {
+  display: flex;
+  position: relative;
+}
+.slides {
+  position: relative;
+  display: flex;
+  z-index: 100;
+  width: 800px;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out 0s;
+}
+.navigation {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 150;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation div {
+  background-color: rgba(200, 200, 200, 0.65);
+  padding: 10px;
+  color: #000000;
+  cursor: pointer;
+}
+.navigation div:hover {
+  background-color: rgba(200, 200, 200, 1);
+}
