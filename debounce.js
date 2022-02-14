@@ -4,7 +4,7 @@
 
 function debounce(func, timeout = 3000) {
   let timer;
-  return () => {
+  return function () {
     clearTimeout(timer);
     timer = setTimeout(() => {
       func.apply(this, arguments);
@@ -12,10 +12,11 @@ function debounce(func, timeout = 3000) {
   };
 }
 
-function saveData() {
+function saveData(event) {
   console.log("Data Saved");
+  console.log(event);
 }
 
-const processData = debounce(() => saveData());
+const processData = debounce((/* ...args */) => saveData(/* ..args */));
 
-processData();
+processData(/* args */);
