@@ -21,29 +21,11 @@ function customPromiseAll(promises) {
     for (let index = 0; index < promises.length; index++) {
       promises[index]
         .then((res) => {
-          result.push(res);
-          if (index === promises.length - 1) resolve(result);
+          result.push(res)
+        if(index === promises.length -1) resolve(result)
         })
         .catch((err) => reject(err));
     }
-  });
-}
-
-/**
- * Alternet solution
- */
-function customPromiseAll(promises) {
-  let result = [];
-
-  return new Promise((resolve, reject) => {
-    promises.forEach((p, index) => {
-      p.then((res) => {
-        result.push(res);
-        if (index === promises.length - 1) {
-          resolve(result);
-        }
-      }).catch((err) => reject(err));
-    });
   });
 }
 
